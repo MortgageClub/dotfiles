@@ -1,0 +1,59 @@
+[user]
+	name = Amos Elliston
+	email = famoseagle@gmail.com
+[alias]
+  d   = diff --patch-with-stat --ignore-space-change
+  dc  = diff --patch-with-stat --ignore-space-change --cached
+  ap  = add -p
+  co  = checkout
+  ci  = commit
+  ca  = commit -a
+  st  = status
+  pl  = pull
+  pu  = push
+  br  = branch
+  bd  = branch -D
+  sh  = stash
+  sv  = stash save
+  shp = stash --patch
+  svp = stash save --patch
+  sl  = stash list
+  sd  = !sh -c 'git stash show --patch-with-stat stash@{${0/sh/0}}'
+  sp  = !sh -c 'git stash pop   stash@{${0/sh/0}}'
+  sa  = !sh -c 'git stash apply stash@{${0/sh/0}}'
+  stash-drop = !sh -c 'git stash drop  stash@{${0/sh/0}}'
+  cp  = cherry-pick
+  la  = log --name-status --date-order
+  lla = log --patch-with-stat --ignore-space-change --date-order
+  l   = log --name-status --date-order --author=[Ee]lliston
+  ll  = log --patch-with-stat --ignore-space-change --date-order --author=[Ee]lliston
+  cl  = !sh -c 'git log --name-status --date-order --author=[Ee]lliston --no-merges --left-right --cherry-pick $0...HEAD'
+  cll = !sh -c 'git log --patch-with-stat --ignore-space-change --date-order --author=[Ee]lliston --no-merges --left-right --cherry-pick $0...HEAD'
+  cr  = !sh -c 'git rev-list --date-order --author=[Ee]lliston --no-merges --left-right --cherry-pick $0...HEAD'
+  blame = blame -w
+  fs  = !sh -c 'git flow feature start  ${0/sh/} && git push origin -u feature/$0'
+  ff  = !sh -c 'git flow feature finish ${0/sh/} && git push origin   :feature/$0'
+[apply]
+  whitespace = nowarn
+[branch]
+  autosetupmerge = true
+[color]
+  branch = auto
+  status = auto
+  diff = auto
+  ui = auto
+[mirror]
+	summary = true
+[merge]
+  tool = vimdiff
+[branch]
+   autosetuprebase = remote
+[web]
+	browser = open
+[core]
+	excludesfile = ~/.gitignore_global
+[push]
+  default = simple
+  #default = matching
+[init]
+	templatedir = ~/.git_template
