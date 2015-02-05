@@ -199,10 +199,10 @@ gbdm () {
   fi;
 }
 
-# Check out a pull request
-# e.g. $ grev issue_1234
-# would pull the changes from the pull request named issue_1234 from origin
-# and create a local branch named PR_issue_1234 so you can test the code in
+# Check out a pull request from github
+# e.g. $ grev 1234
+# would pull the changes from the pull request number 1234 from origin
+# and create a local branch named PR_1234 so you can test the code in
 # your own environment.
 grev () {
   git fetch origin pull/$1/head:PR_$1;
