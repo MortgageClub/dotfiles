@@ -96,6 +96,8 @@ gupf () {
     else
       if [ "$1" = "$main_repo" ]; then
         echo "Aborted. Forced push on main repo master is not safe."; return
+      else
+        git push --force $1 $2
       fi
     fi
   fi
@@ -163,7 +165,12 @@ gbt () {
   if [ $# -eq 2 ]; then
     git branch --set-upstream-to=origin/$2 $1
   else
-    echo "must supply a local branch name and a remote branch name. e.g. $ gbt issue_1234 feature_branch"; return
+    if [ $# -eq 1 ]; then
+      branch_name=$(git symbolic-ref HEAD 2>/dev/null | cut -d"/" -f3)
+      git branch --set-upstream-to=origin/$1 $branch_name
+    else
+      echo "must supply a local branch name and a remote branch name. e.g. $ gbt issue_1234 feature_branch"; return
+    fi
   fi
 }
 
